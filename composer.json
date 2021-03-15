@@ -1,0 +1,38 @@
+{
+  "name": "babak271/shared_host_artisan",
+  "description": "Easily run artisan command in php shared host.",
+  "keywords": [
+    "shared-host-laravel",
+    "laravel-artisan-commands",
+    "artisan-commands-shared-host"
+  ],
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Babak Ashrafi",
+      "email": "ashrafiseyedbabak@gmail.com"
+    }
+  ],
+  "require": {
+    "illuminate/support": "~5.0|^6.0|^7.0|^8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Babak271\\SharedHostArtisan\\": "src"
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Babak271\\SharedHostArtisan\\SharedHostArtisanServiceProvider"
+      ],
+      "aliases": {
+        "SharedHostArtisan": "Babak271\\SharedHostArtisan\\SharedHostArtisan"
+      }
+    }
+  }
+}

@@ -18,6 +18,16 @@ class SharedHostArtisanCommand
     }
 
     /**
+     * Get index of shared host artisan commands.
+     *
+     * @return mixed
+     */
+    public function index()
+    {
+        return view('shared_host_artisan::index');
+    }
+
+    /**
      * Run clear cache artisan command.
      *
      * @return int

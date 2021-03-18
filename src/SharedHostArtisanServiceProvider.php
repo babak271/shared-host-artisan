@@ -2,6 +2,7 @@
 
 namespace Babak271\SharedHostArtisan;
 
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 class SharedHostArtisanServiceProvider extends ServiceProvider
@@ -24,6 +25,7 @@ class SharedHostArtisanServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'shared_host_artisan');
+        $this->registerRoutes();
 
         $this->publishes([
             __DIR__ . '/../resources/views' => $this->app->basePath('resources/views/vendor/shared-host-artisan'),
@@ -31,5 +33,20 @@ class SharedHostArtisanServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../config/share_host_artisan.php' => $this->app->basePath('config/share_host_artisan.php'),
         ]);
+    }
+
+    protected function registerRoutes()
+    {
+        Route::group($this->routeConfiguration(), function () {
+            $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+        });
+    }
+
+    protected function routeConfiguration()
+    {
+        return [
+            'prefix'     => config('share_host_artisan.prefix'),
+            'middleware' => config('share_host_artisan.middleware'),
+        ];
     }
 }

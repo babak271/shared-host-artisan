@@ -28,5 +28,8 @@ class SharedHostArtisanServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../resources/views' => $this->app->basePath('resources/views/vendor/shared-host-artisan'),
         ]);
+        $this->publishes([
+            __DIR__ . '/../config/share_host_artisan.php' => $this->app->basePath('config/share_host_artisan.php'),
+        ]);
     }
 }

@@ -6,38 +6,84 @@ use Artisan;
 
 class SharedHostArtisanCommand
 {
+    /**
+     * Handle artisan command calls.
+     *
+     * @param $command
+     * @return int
+     */
+    private function execArtisanCall($command)
+    {
+        return Artisan::call($command);
+    }
+
+    /**
+     * Run clear cache artisan command.
+     *
+     * @return int
+     */
     public function clearCache()
     {
-        return Artisan::call('cache:clear');
+        return $this->execArtisanCall('cache:clear');
     }
 
+    /**
+     * Run clear route artisan command.
+     *
+     * @return int
+     */
     public function clearRoute()
     {
-        return Artisan::call('route:clear');
+        return $this->execArtisanCall('route:clear');
     }
 
+    /**
+     * Run route cache artisan command.
+     *
+     * @return int
+     */
     public function cacheRoute()
     {
-        return Artisan::call('route:cache');
+        return $this->execArtisanCall('route:cache');
     }
 
+    /**
+     * Run clear view artisan command.
+     *
+     * @return int
+     */
     public function clearView()
     {
-        return Artisan::call('view:clear');
+        return $this->execArtisanCall('view:clear');
     }
 
+    /**
+     * Run view cache artisan command.
+     *
+     * @return int
+     */
     public function cacheView()
     {
-        return Artisan::call('view:cache');
+        return $this->execArtisanCall('view:cache');
     }
 
+    /**
+     * Run config cache artisan command.
+     *
+     * @return int
+     */
     public function cacheConfig()
     {
-        return Artisan::call('config:cache');
+        return $this->execArtisanCall('config:cache');
     }
 
+    /**
+     * Run config cache artisan command.
+     *
+     * @return int
+     */
     public function clearConfig()
     {
-        return Artisan::call('config:clear');
+        return $this->execArtisanCall('config:clear');
     }
 }

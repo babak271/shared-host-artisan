@@ -25,12 +25,12 @@ class SharedHostArtisanServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'shared_host_artisan');
+        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'shared_host_artisan');
         $this->registerRoutes();
 
         $this->publishes([
-            __DIR__ . '/../resources/views' => $this->app->basePath('resources/views/vendor/shared-host-artisan'),
-        ]);
-        $this->publishes([
+            __DIR__ . '/../resources/views'               => $this->app->basePath('resources/views/vendor/shared-host-artisan'),
+            __DIR__ . '/../resources/lang'                => $this->app->basePath('resources/lang/vendor/shared-host-artisan'),
             __DIR__ . '/../config/share_host_artisan.php' => $this->app->basePath('config/share_host_artisan.php'),
         ]);
     }

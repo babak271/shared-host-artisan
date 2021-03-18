@@ -1,6 +1,7 @@
 <?php
 
 return [
-    'prefix'     => 'share_host_artisan',
-    'middleware' => ['web'],
+    'blade_direction' => 'ltr',
+    'prefix'          => 'share_host_artisan',
+    'middleware'      => ['web'],
 ];

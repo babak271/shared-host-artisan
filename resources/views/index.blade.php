@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{ config('share_host_artisan.blade_direction') }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"

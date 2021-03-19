@@ -3,9 +3,12 @@
 namespace Babak271\SharedHostArtisan;
 
 use Artisan;
+use Illuminate\Support\Facades\Response;
 
 class SharedHostArtisanCommand
 {
+    const TRANSLATION_FILE_NAME = 'text';
+
     /**
      * Handle artisan command calls.
      *
@@ -15,6 +18,15 @@ class SharedHostArtisanCommand
     private function execArtisanCall($command)
     {
         return Artisan::call($command);
+    }
+
+    /**
+     * @param string $trans_key associated translation key.
+     * @return \Illuminate\Http\JsonResponse
+     */
+    protected function generateSuccessResponse($trans_key)
+    {
+        return Response::json(['message' => __('shared_host_artisan::' . self::TRANSLATION_FILE_NAME . '.' . $trans_key)]);
     }
 
     /**
@@ -30,41 +42,53 @@ class SharedHostArtisanCommand
     /**
      * Run clear cache artisan command.
      *
-     * @return int
+     * @return ?\Illuminate\Http\JsonResponse
      */
     public function clearCache()
     {
-        return $this->execArtisanCall('cache:clear');
+        if ($this->execArtisanCall('cache:clear') == 0) {
+            return $this->generateSuccessResponse('successful_clear_cache');
+        }
+        return null;
     }
 
     /**
      * Run clear route artisan command.
      *
-     * @return int
+     * @return ?\Illuminate\Http\JsonResponse
      */
     public function clearRoute()
     {
-        return $this->execArtisanCall('route:clear');
+        if ($this->execArtisanCall('route:clear') == 0) {
+            return $this->generateSuccessResponse('successful_clear_route');
+        }
+        return null;
     }
 
     /**
      * Run route cache artisan command.
      *
-     * @return int
+     * @return ?\Illuminate\Http\JsonResponse
      */
     public function cacheRoute()
     {
-        return $this->execArtisanCall('route:cache');
+        if ($this->execArtisanCall('route:cache') == 0) {
+            return $this->generateSuccessResponse('successful_cache_route');
+        }
+        return null;
     }
 
     /**
      * Run clear view artisan command.
      *
-     * @return int
+     * @return ?\Illuminate\Http\JsonResponse
      */
     public function clearView()
     {
-        return $this->execArtisanCall('view:clear');
+        if ($this->execArtisanCall('view:clear') == 0) {
+            return $this->generateSuccessResponse('successful_clear_view');
+        }
+        return null;
     }
 
     /**
@@ -74,7 +98,10 @@ class SharedHostArtisanCommand
      */
     public function cacheView()
     {
-        return $this->execArtisanCall('view:cache');
+        if ($this->execArtisanCall('view:cache') == 0) {
+            return $this->generateSuccessResponse('successful_cache_view');
+        }
+        return null;
     }
 
     /**
@@ -84,7 +111,10 @@ class SharedHostArtisanCommand
      */
     public function cacheConfig()
     {
-        return $this->execArtisanCall('config:cache');
+        if ($this->execArtisanCall('config:cache') == 0) {
+            return $this->generateSuccessResponse('successful_clear_config');
+        }
+        return null;
     }
 
     /**
@@ -94,6 +124,9 @@ class SharedHostArtisanCommand
      */
     public function clearConfig()
     {
-        return $this->execArtisanCall('config:clear');
+        if ($this->execArtisanCall('config:clear') == 0) {
+            return $this->generateSuccessResponse('successful_cache_config');
+        }
+        return null;
     }
 }

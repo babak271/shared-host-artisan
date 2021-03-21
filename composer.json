@@ -1,5 +1,5 @@
 {
-    "name": "babak271/shared_host_artisan",
+    "name": "babak271/shared-host-artisan",
     "description": "Easily run artisan command in php shared host.",
     "keywords": [
         "shared-host-laravel",

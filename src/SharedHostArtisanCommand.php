@@ -44,7 +44,7 @@ class SharedHostArtisanCommand
      *
      * @return ?\Illuminate\Http\JsonResponse
      */
-    public function clearCache()
+    final public function clearCache()
     {
         if ($this->execArtisanCall('cache:clear') == 0) {
             return $this->generateSuccessResponse('successful_clear_cache');
@@ -57,7 +57,7 @@ class SharedHostArtisanCommand
      *
      * @return ?\Illuminate\Http\JsonResponse
      */
-    public function clearRoute()
+    final public function clearRoute()
     {
         if ($this->execArtisanCall('route:clear') == 0) {
             return $this->generateSuccessResponse('successful_clear_route');
@@ -70,7 +70,7 @@ class SharedHostArtisanCommand
      *
      * @return ?\Illuminate\Http\JsonResponse
      */
-    public function cacheRoute()
+    final public function cacheRoute()
     {
         if ($this->execArtisanCall('route:cache') == 0) {
             return $this->generateSuccessResponse('successful_cache_route');
@@ -83,7 +83,7 @@ class SharedHostArtisanCommand
      *
      * @return ?\Illuminate\Http\JsonResponse
      */
-    public function clearView()
+    final public function clearView()
     {
         if ($this->execArtisanCall('view:clear') == 0) {
             return $this->generateSuccessResponse('successful_clear_view');
@@ -96,7 +96,7 @@ class SharedHostArtisanCommand
      *
      * @return int
      */
-    public function cacheView()
+    final public function cacheView()
     {
         if ($this->execArtisanCall('view:cache') == 0) {
             return $this->generateSuccessResponse('successful_cache_view');
@@ -109,7 +109,7 @@ class SharedHostArtisanCommand
      *
      * @return int
      */
-    public function cacheConfig()
+    final public function cacheConfig()
     {
         if ($this->execArtisanCall('config:cache') == 0) {
             return $this->generateSuccessResponse('successful_clear_config');
@@ -122,7 +122,7 @@ class SharedHostArtisanCommand
      *
      * @return int
      */
-    public function clearConfig()
+    final public function clearConfig()
     {
         if ($this->execArtisanCall('config:clear') == 0) {
             return $this->generateSuccessResponse('successful_cache_config');

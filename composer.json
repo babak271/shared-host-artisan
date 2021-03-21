@@ -1,38 +1,50 @@
 {
-  "name": "babak271/shared_host_artisan",
-  "description": "Easily run artisan command in php shared host.",
-  "keywords": [
-    "shared-host-laravel",
-    "laravel-artisan-commands",
-    "artisan-commands-shared-host"
-  ],
-  "minimum-stability": "stable",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Babak Ashrafi",
-      "email": "ashrafiseyedbabak@gmail.com"
+    "name": "babak271/shared_host_artisan",
+    "description": "Easily run artisan command in php shared host.",
+    "keywords": [
+        "shared-host-laravel",
+        "laravel-artisan-commands",
+        "artisan-commands-shared-host"
+    ],
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Babak Ashrafi",
+            "email": "ashrafiseyedbabak@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/support": "~5.0|^6.0|^7.0|^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.15",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Babak271\\SharedHostArtisan\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Babak271\\SharedHostArtisanCommand\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --colors=always"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Babak271\\SharedHostArtisan\\SharedHostArtisanServiceProvider"
+            ],
+            "aliases": {
+                "SharedHostArtisan": "Babak271\\SharedHostArtisan\\SharedHostArtisan"
+            }
+        }
     }
-  ],
-  "require": {
-    "illuminate/support": "~5.0|^6.0|^7.0|^8.0"
-  },
-  "autoload": {
-    "psr-4": {
-      "Babak271\\SharedHostArtisan\\": "src"
-    }
-  },
-  "config": {
-    "sort-packages": true
-  },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "Babak271\\SharedHostArtisan\\SharedHostArtisanServiceProvider"
-      ],
-      "aliases": {
-        "SharedHostArtisan": "Babak271\\SharedHostArtisan\\SharedHostArtisan"
-      }
-    }
-  }
 }

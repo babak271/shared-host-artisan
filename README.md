@@ -15,13 +15,12 @@ a shared host that restricted `proc_open` functions.
 You can install the package via composer:
 
 ```bash
-composer require babak271/shared_host_artisan
+composer require babak271/shared-host-artisan
 ```
 
 You can publish the config and view files with:
 ```bash
-php artisan vendor:publish
---provider="Babak271\SharedHostArtisanCommand\SharedHostArtisanCommandServiceProvider"
+php artisan vendor:publish --provider="Babak271\SharedHostArtisanCommand\SharedHostArtisanCommandServiceProvider"
 ```
 
 This is the contents of the published config file:
